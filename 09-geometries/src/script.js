@@ -14,46 +14,13 @@ const scene = new THREE.Scene();
 /**
  * Object
  */
-const geometry = new THREE.BoxGeometry(1, 1, 1, 2, 2, 2);
-// const geometry = new THREE.BufferGeometry();
-// const positionsArray = new Float32Array([
-//   0,
-//   0,
-//   0, // First vertex
-//   0,
-//   1,
-//   0, // Second vertex
-//   1,
-//   0,
-//   0, // Third vertex
-// ]);
+// const geometry = new THREE.BoxBufferGeometry(1, 1, 1, 2, 2, 2);
+const geometry = new THREE.BufferGeometry();
+const positionsArray = new Float32Array([0, 0, 0, 0, 1, 0, 1, 0, 0]);
 
-// const positionsAttribute = new THREE.BufferAttribute(positionsArray, 3); // number 3 mean one vertice use 3 value in array (position x, y, z)
-// geometry.setAttribute("position", positionsAttribute);
-// const vertex1 = new THREE.Vector3(0, 0, 0);
-// geometry.vertices.push(vertex1);
-// const vertex2 = new THREE.Vector3(0, 1, 0);
-// geometry.vertices.push(vertex2);
-// const vertex3 = new THREE.Vector3(1, 0, 0);
-// geometry.vertices.push(vertex3);
+const positionsAttribute = new THREE.BufferAttribute(positionsArray, 3);
 
-// const face = new THREE.Face3(0, 1, 2);
-// geometry.faces.push(face);
-
-/**
- * Random 50 triangles
- */
-
-// const count = 50;
-// const multipleBufferGeometry = new THREE.BufferGeometry();
-// const positionsArray2 = new Float32Array(count * 3 * 3); // 1 triangle has 3 vertices, 1 vertex use 3 values for position (x, y, z)
-
-// for (let i = 0; i < count * 3 * 3; i++) {
-//   positionsArray2[i] = (Math.random() - 0.5) * 4;
-// }
-
-// const positionsAttribute2 = new THREE.BufferAttribute(positionsArray2, 3);
-// multipleBufferGeometry.setAttribute("position", positionsAttribute2);
+geometry.setAttribute("position", positionsAttribute);
 
 const material = new THREE.MeshBasicMaterial({
   color: 0xff0000,
@@ -61,8 +28,6 @@ const material = new THREE.MeshBasicMaterial({
 });
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
-// const multi = new THREE.Mesh(multipleBufferGeometry, material);
-// scene.add(multi);
 
 // Sizes
 const sizes = {
